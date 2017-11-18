@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -36,13 +36,13 @@ public class PlayerController : Stopmoving {
 	float				timesincetapping;
 
 	bool 				jumping;
-	bool				grounded;
+	bool				grounded = true;
 	public Vector3		groundPosition;
 	public Vector2		groundSize;
 	public AudioClip	run;
 	
 	new Rigidbody2D	rigidbody2D;
-	SpriteRenderer	spriteRenderer;
+	// SpriteRenderer	spriteRenderer;
 	Animator		anim;
 	AudioSource		audiosource;
 	
@@ -50,7 +50,7 @@ public class PlayerController : Stopmoving {
 
 	// Use this for initialization
 	void Start () {
-		spriteRenderer = GetComponent< SpriteRenderer >();
+		// spriteRenderer = GetComponent< SpriteRenderer >();
 		rigidbody2D = GetComponent< Rigidbody2D >();
 
 		rigidbody2D.interpolation = RigidbodyInterpolation2D.Interpolate;
@@ -146,7 +146,7 @@ public class PlayerController : Stopmoving {
 	{
 		RaycastHit2D[] results = new RaycastHit2D[10];
 		int collisionNumber = Physics2D.BoxCastNonAlloc(transform.position + groundPosition, groundSize, 0, Vector2.down, results, .0f, 1 << LayerMask.NameToLayer("Ground"));
-
+	//print(collisionNumber);
 		grounded = collisionNumber != 0;
 
 		if (grounded == false)
@@ -157,7 +157,8 @@ public class PlayerController : Stopmoving {
 			anim.SetBool("jumping", jumping);
 			ungrounded = false;
 		}
-
+		//print("lAAAA 2");
+		//print(grounded);
 		anim.SetBool("grounded", grounded);
 	}
 
@@ -212,6 +213,21 @@ public class PlayerController : Stopmoving {
 		canJump = true;
 	}
 		
+	IEnumerator JumpProtec()
+	{
+			// Debug.Log("he protec");
+		
+		yield return new WaitForSeconds(2f);
+			// Debug.Log("he protec");
+		
+		while (grounded == true && jumping == true)
+		{
+			// Debug.Log("he protec");
+			jumping = false;
+			anim.SetBool("jumping", jumping);
+		}
+	}
+
 	IEnumerator JumpWait()
 	{
 		jumping = true;
@@ -227,7 +243,9 @@ public class PlayerController : Stopmoving {
 			return ;
 		if (grounded && Input.GetKeyDown(KeyCode.Space) && canJump)
 		{
+		//	print("laaaaaa");
 			audiosource.PlayOneShot(jumpClip, .2f);
+			StartCoroutine(JumpProtec());
 			StartCoroutine(JumpWait());
 		//	new WaitForSeconds(jumpwait);
 		//	rigidbody2D.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
