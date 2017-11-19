@@ -271,7 +271,8 @@ public class PlayerController : Stopmoving {
 		// 	if (rigidbody2D.velocity.y < slimeVelocityIgnore)
 		// 		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
 		// }
-		if (canOuch && other.collider.tag == "OS")
+		// print("colide");
+		if (other.collider.tag == "OS")
 		{
 			Die();
 			return ;
@@ -283,10 +284,14 @@ public class PlayerController : Stopmoving {
 		if (other.tag == "finish")
 		{
 			cannotmove = true;
-			//rigidbody2D.velocity = new Vector2(0, 0);
+			// rigidbody2D.velocity = new Vector2(0, 0);
 			anim.SetTrigger("finish");
 		}
-
+		if (other.tag == "OS")
+		{
+			Die();
+			return ;
+		}
 		// if (other.tag == "OS")
 		// {
 		// 	life = 0;
