@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 public class controllertetris : MonoBehaviour {
 
 	// Use this for initialization
+	public GameObject	GameManager;
 	public quadrapode[] list;
 	public GameObject[] listimage;
 
@@ -17,10 +19,12 @@ public class controllertetris : MonoBehaviour {
 	public Vector3	nextorigin;
 	[HideInInspector] public UnityEvent checkpoofneeded;
 	[HideInInspector] public UnityEvent checkdestroyneeded;
+	private	Game_Manager	GM;
 
 	int tmp36 = 0;
 	int tmp32 = 0;
 
+// 
 	void Awake()
 	{
 		if (checkpoofneeded == null)
@@ -29,6 +33,7 @@ public class controllertetris : MonoBehaviour {
 			checkdestroyneeded = new UnityEvent();
 	}
 	void Start () {
+		GM = GameManager.GetComponent<Game_Manager>();
 		newnext();
 	}
 
@@ -68,24 +73,26 @@ public class controllertetris : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (tmp36 == 0 && (current == null || current.ismoving == 0))
-		{
-			tmp36 = 1;
-			StartCoroutine(spawnnew());
-		}
-		if (current == null || tmp32 == 1)
-			return ;
-		
-		if (current.raycasthori(1) && Input.GetKey("right"))
-		{
-			current.rigid.MovePosition(current.transform.position + new Vector3(1, 0, 0));
-			StartCoroutine(delay());
-		}
+		if (GM.GameState) {
+			if (tmp36 == 0 && (current == null || current.ismoving == 0))
+			{
+				tmp36 = 1;
+				StartCoroutine(spawnnew());
+			}
+			if (current == null || tmp32 == 1)
+				return ;
+			
+			if (current.raycasthori(1) && Input.GetKey("right"))
+			{
+				current.rigid.MovePosition(current.transform.position + new Vector3(1, 0, 0));
+				StartCoroutine(delay());
+			}
 
-		if (current.raycasthori(-1) && Input.GetKey("left"))
-		{
-			current.rigid.MovePosition(current.transform.position - new Vector3(1, 0, 0));
-			StartCoroutine(delay());
+			if (current.raycasthori(-1) && Input.GetKey("left"))
+			{
+				current.rigid.MovePosition(current.transform.position - new Vector3(1, 0, 0));
+				StartCoroutine(delay());
+			}
 		}
 	}
 }

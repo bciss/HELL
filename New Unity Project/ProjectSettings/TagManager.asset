@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Foe
   - Ground
+  - ouch
+  - OS
   layers:
   - Default
   - TransparentFX

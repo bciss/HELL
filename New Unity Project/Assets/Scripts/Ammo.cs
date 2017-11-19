@@ -12,7 +12,7 @@ public class Ammo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = new Vector3(transform.position.x, transform.position.y + speed, transform.position.z);
+		transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime * 60f, 0);
 		if (transform.position.y > 70f || transform.position.y < -70f) {
 			GameObject.Destroy(gameObject);
 		}
@@ -20,7 +20,6 @@ public class Ammo : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log(other.tag);
 		if (other.tag != gameObject.tag && other.tag != "Untagged")
 			GameObject.Destroy(gameObject);
 	}

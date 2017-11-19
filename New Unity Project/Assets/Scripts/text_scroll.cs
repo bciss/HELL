@@ -38,10 +38,12 @@ public class text_scroll : MonoBehaviour {
 	}
 
 	IEnumerator Write() {
-		txt.GetComponent<Text>().text = list[i];
-		Debug.Log(list[i]);
+		if (i < list.Length) {
+			txt.GetComponent<Text>().text = list[i];
+			Debug.Log(list[i]);
+			i++;
+		}
 		yield return new WaitForSeconds(3);
-		i++;
 		writing = false;
 	}
 
