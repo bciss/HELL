@@ -82,17 +82,20 @@ public class controllertetris : MonoBehaviour {
 			if (current == null || tmp32 == 1)
 				return ;
 			
-			if (current.raycasthori(1) && Input.GetKey("right"))
+			float m  = Input.GetAxisRaw("Horizontal");
+			if (current.raycasthori(1) && m > 0)
 			{
 				current.rigid.MovePosition(current.transform.position + new Vector3(1, 0, 0));
 				StartCoroutine(delay());
 			}
 
-			if (current.raycasthori(-1) && Input.GetKey("left"))
+			if (current.raycasthori(-1) && m < 0)
 			{
 				current.rigid.MovePosition(current.transform.position - new Vector3(1, 0, 0));
 				StartCoroutine(delay());
 			}
+			if (Input.GetKeyDown("space"))
+				current.transform.Rotate(Vector3.forward, 90);
 		}
 	}
 }

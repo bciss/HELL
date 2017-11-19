@@ -11,7 +11,10 @@ public class playerloadingdevilcontroller : MonoBehaviour {
 	public float ymax;
 	public blblbl b;
 	public Text	loadingtext;
+	public Slider loadingslider;
+	public List<LOL> lol;
 	[HideInInspector] public float loading;
+
 
 	// Use this for initialization
 	void Start () {
@@ -30,7 +33,8 @@ public class playerloadingdevilcontroller : MonoBehaviour {
 		else
 			b.isactive = true;
 		loading += Time.deltaTime * 100 / 90;
-		loadingtext.text = loading.ToString() + "%";
+		loadingtext.text = Mathf.Round(loading).ToString() + "%";
+		loadingslider.value = loading / 100;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
