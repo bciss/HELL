@@ -7,6 +7,7 @@ TagManager:
   - Foe
   - Ground
   - ouch
+  - OS
   layers:
   - Default
   - TransparentFX
