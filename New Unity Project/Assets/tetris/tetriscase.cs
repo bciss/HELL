@@ -7,9 +7,11 @@ public class tetriscase : MonoBehaviour {
 	// Use this for initialization
 	public tetriscase right = null;
 	public tetriscase left = null;
+	[HideInInspector] public bool astobedestroy = false;
 
 	void Start () {
 		Camera.main.GetComponent<controllertetris>().checkpoofneeded.AddListener(checkpoof);
+		Camera.main.GetComponent<controllertetris>().checkdestroyneeded.AddListener(checkdestroy);
 	}
 	
 	// Update is called once per frame
@@ -23,58 +25,27 @@ public class tetriscase : MonoBehaviour {
 		left = null;
 	}
 
+	public void checkdestroy()
+	{
+		Debug.Log("dsf");
+		if (astobedestroy == true)
+			GameObject.Destroy(gameObject);
+	}
+
 	public void checkpoof()
 	{
-		RaycastHit2D righthit = Physics2D.Raycast(transform.position, new Vector2(1, 0));
-		if (righthit == false)
-			right = null;
-		else
-			right = righthit.collider.gameObject.GetComponent<tetriscase>();
-
-		RaycastHit2D lefthit = Physics2D.Raycast(transform.position, new Vector2(-1, 0));
-		if (lefthit == false)
-			left = null;
-		else
-			left = lefthit.collider.gameObject.GetComponent<tetriscase>();
-
-		if (right == this || left == this)
+		Debug.Log("dsf3");
+		RaycastHit2D[] list2;
+		list2 = Physics2D.RaycastAll(new Vector2(-10, transform.position.y), new Vector2(1, 0), 100, 1 << LayerMask.NameToLayer("tetriscube"));
+			// Debug.DrawRay(new Vector2(-10, transform.position.y), new Vector2(1, 0) * 100, Color.red, 1);
+		Debug.Log(list2.Length);
+		if  (list2.Length > 11)
 		{
-			Debug.Log("dafuq346");
-			return ;
-		}
-
-		tetriscase tmp = this;
-		int nballign = 1;
-		while (tmp.left != null)
-		{
-			nballign++;
-			tmp = tmp.left;
-		}
-		tmp = this;
-		while (tmp.right != null)
-		{
-			nballign++;
-			tmp = tmp.right;
-		}
-	
-		if (nballign > 9)
-		{
-			tetriscase tmp2 = null;
-			tmp = this.left;
-			while (tmp != null)
-			{
-				tmp2 = tmp;
-				tmp = tmp.left;
-				GameObject.Destroy(tmp2.gameObject);
-			}
-			tmp = this.right;
-			while (tmp != null)
-			{
-				tmp2 = tmp;
-				tmp = tmp.right;
-				GameObject.Destroy(tmp2.gameObject);
-			}
-			GameObject.Destroy(this);
+			foreach (var l  in list2)
+				Debug.Log(l.collider);
+			Debug.Log("list2.Length");
+			this.astobedestroy = true;
 		}
 	}
+
 }

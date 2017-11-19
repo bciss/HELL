@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Foe
+  - Ground
+  - ouch
   layers:
   - Default
   - TransparentFX
@@ -14,6 +16,7 @@ TagManager:
   - UI
   - 
   - 
+  - Ground
   - 
   - 
   - 
@@ -34,10 +37,9 @@ TagManager:
   - 
   - 
   - 
+  - tetriscube
   - 
-  - 
-  - 
-  - 
+  - GUI
   m_SortingLayers:
   - name: Default
     uniqueID: 0
