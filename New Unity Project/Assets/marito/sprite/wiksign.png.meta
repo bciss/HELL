@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ac250704731284798a04a8e5fcc33f96
-timeCreated: 1511040285
+guid: 9c9b54aa0a28441c19866401a517f72d
+timeCreated: 1511047169
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: intero_0
+    21300000: wiksign_0
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -79,13 +79,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: intero_0
+      name: wiksign_0
       rect:
         serializedVersion: 2
-        x: 141
-        y: 275
-        width: 134
-        height: 136
+        x: 293
+        y: 233
+        width: 407
+        height: 590
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
