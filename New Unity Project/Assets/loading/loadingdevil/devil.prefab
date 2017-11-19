@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4490862393308640}
   - component: {fileID: 212996848984699904}
   - component: {fileID: 114856465020644294}
-  - component: {fileID: 95396939178301350}
+  - component: {fileID: 114046920848633896}
   m_Layer: 0
   m_Name: devil
   m_TagString: Untagged
@@ -36,29 +36,164 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1441029410437926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.78, y: 3.99, z: 0}
+  m_LocalPosition: {x: -5.73, y: 4.07, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95396939178301350
-Animator:
-  serializedVersion: 3
+--- !u!114 &114046920848633896
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1441029410437926}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4744beec1477849ee93b237170d9a299, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fe300a5489f84d80a154d761120bc46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gaucher: 0
+  isactive: 1
+  timespin:
+  - 5.12
+  - 6.315
+  - 7.424
+  - 8.533
+  - 9.813
+  - 10.837
+  - 12.032
+  - 13.056
+  - 14.165
+  - 15.275
+  - 16.384
+  - 17.493
+  - 18.688
+  - 19.797
+  - 20.821
+  - 21.931
+  - 23.125
+  - 24.32
+  - 25.429
+  - 26.539
+  - 27.648
+  - 28.672
+  - 29.867
+  - 30.891
+  - 32.085
+  - 33.109
+  - 34.133
+  - 35.243
+  - 36.267
+  - 37.291
+  - 38.315
+  - 39.253
+  - 40.363
+  - 41.387
+  - 42.325
+  - 43.349
+  - 44.373
+  - 45.397
+  - 46.421
+  - 47.36
+  - 48.384
+  - 49.323
+  - 50.347
+  - 51.285
+  - 52.224
+  - 53.163
+  - 54.101
+  - 55.04
+  - 55.979
+  - 56.917
+  - 57.856
+  - 58.794
+  - 59.563
+  - 60.416
+  - 61.355
+  - 62.123
+  - 63.061
+  - 63.915
+  - 64.768
+  - 65.621
+  - 66.475
+  - 67.328
+  - 68.181
+  - 69.035
+  - 69.803
+  - 70.571
+  - 71.339
+  - 72.107
+  - 72.789
+  - 73.557
+  - 74.24
+  - 75.008
+  - 75.691
+  - 76.459
+  - 77.312
+  - 78.08
+  - 78.848
+  - 79.616
+  - 80.469
+  - 81.237
+  - 81.92
+  - 82.688
+  - 83.456
+  - 84.224
+  - 85.163
+  - 85.845
+  - 86.613
+  - 87.381
+  - 88.149
+  - 88.917
+  - 89.6
+  - 90.283
+  - 90.88
+  - 91.353
+  - 92.245
+  - 92.928
+  - 93.611
+  - 94.208
+  - 94.891
+  - 95.573
+  - 96.171
+  - 96.768
+  - 97.451
+  - 98.048
+  - 98.645
+  - 99.328
+  - 100.011
+  - 100.608
+  - 101.291
+  - 101.888
+  - 102.571
+  - 103.168
+  - 103.765
+  - 104.363
+  - 104.96
+  - 105.643
+  - 106.24
+  - 106.837
+  - 107.435
+  - 108.032
+  - 108.885
+  - 109.824
+  - 110.763
+  - 111.445
+  - 112.128
+  - 112.725
+  - 113.579
+  - 114.517
+  - 115.115
+  - 115.456
+  - 115.883
+  - 116.48
+  - 117.419
+  - 118.272
+  - 120.235
+  - 122.197
+  - 123.392
+  source: {fileID: 0}
 --- !u!114 &114856465020644294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,9 +205,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1725117169ef04f13bddd47b91c4dbd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 1591145501477980, guid: 82c10ed2977e944469f396627e8cad76, type: 2}
   spawntime: 2
   range: 1000
+  player: {fileID: 0}
+  addrandomspawnrange: 0
 --- !u!212 &212996848984699904
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerloadingdevilcontroller : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class playerloadingdevilcontroller : MonoBehaviour {
 	public float ymin;
 	public float ymax;
 	public blblbl b;
+	public Text	loadingtext;
+	[HideInInspector] public float loading;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +29,15 @@ public class playerloadingdevilcontroller : MonoBehaviour {
 			b.isactive = false;
 		else
 			b.isactive = true;
+		loading += Time.deltaTime * 100 / 90;
+		loadingtext.text = loading.ToString() + "%";
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		Debug.Log("fdsf");
+		if (other.tag == "ouch")
+			loading -= 2;
 	}
 
 	// void OnDrawGizmos()

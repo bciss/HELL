@@ -6,25 +6,41 @@ public class turret : MonoBehaviour {
 	public GameObject bullet;
 	float timesinceprevious;
 	public float spawntime;
+	float		realspawntime;
 	public float range;
 	public GameObject player;
+	public float addrandomspawnrange = 0;
+	public float timebeforeactive = 0;
+	public float	Accelebysecond;
+	public float vitessemin;
+
 	LayerMask l;
 	// Use this for initialization
 	void Start () {
-		// l = ~((1 << 8) | (1 << 9) | (1 << 10));
+		realspawntime = spawntime + Random.Range(0, addrandomspawnrange + 1);
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		timesinceprevious += Time.deltaTime;
+	void Update ()
+	{
+		if (spawntime - Time.deltaTime * Accelebysecond > vitessemin)
+			spawntime -= Time.deltaTime * Accelebysecond;
+		if (timebeforeactive > Time.time)
+			return ;
+			// Debug.Log(Time.time);
 
-		if (timesinceprevious > spawntime)
+		timesinceprevious += Time.deltaTime;
+		
+		GetComponent<SpriteRenderer>().enabled = true;
+
+		if (timesinceprevious > realspawntime)
 		{
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.Normalize(player.transform.position - transform.position), range);
 			if (hit.collider != null && hit.collider.tag == "Player") {
 				GameObject.Instantiate (bullet, transform.position, Quaternion.identity);
 			}
 			timesinceprevious = 0;
+			realspawntime = spawntime + Random.Range(0, addrandomspawnrange + 1);
 		}
 	}
 }
