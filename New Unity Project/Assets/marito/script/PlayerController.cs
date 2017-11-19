@@ -181,7 +181,7 @@ public class PlayerController : Stopmoving {
 	void Flip()
 	{
 		facingRight = !facingRight;
-		anim.SetBool("facingright", facingRight);
+		// anim.SetBool("facingright", facingRight);
 		transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
 		//spriteRenderer.flipX = facingRight;
 	}
@@ -266,11 +266,11 @@ public class PlayerController : Stopmoving {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.collider.tag == "Slime")
-		{
-			if (rigidbody2D.velocity.y < slimeVelocityIgnore)
-				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
-		}
+		// if (other.collider.tag == "Slime")
+		// {
+		// 	if (rigidbody2D.velocity.y < slimeVelocityIgnore)
+		// 		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+		// }
 		if (canOuch && other.collider.tag == "OS")
 		{
 			Die();

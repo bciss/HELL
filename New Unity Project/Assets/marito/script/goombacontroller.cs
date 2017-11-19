@@ -40,7 +40,7 @@ public class goombacontroller : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{	
 		
-	//	print ("goomba triger");
+		print ("goomba triger");
 		if (other.tag == "Player")
 		{
 			canmove = false;
