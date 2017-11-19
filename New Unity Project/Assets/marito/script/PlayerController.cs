@@ -26,7 +26,7 @@ public class PlayerController : Stopmoving {
 	public AudioClip	ouchClip;
 	public AudioClip	jumpClip;
 
-	public int			life = 5;
+	public int			life = 1;
 	public float		invulnTime = 1f;
 	bool				canOuch = true;
 	bool				sliding = false;
@@ -42,6 +42,8 @@ public class PlayerController : Stopmoving {
 	public AudioClip	run;
 	
 	new Rigidbody2D	rigidbody2D;
+	CircleCollider2D	circleCollider2d;
+	BoxCollider2D		boxCollider2d;
 	// SpriteRenderer	spriteRenderer;
 	Animator		anim;
 	AudioSource		audiosource;
@@ -52,6 +54,9 @@ public class PlayerController : Stopmoving {
 	void Start () {
 		// spriteRenderer = GetComponent< SpriteRenderer >();
 		rigidbody2D = GetComponent< Rigidbody2D >();
+		circleCollider2d = GetComponent< CircleCollider2D >();
+		boxCollider2d = GetComponent< BoxCollider2D >();
+
 
 		rigidbody2D.interpolation = RigidbodyInterpolation2D.Interpolate;
 		anim = GetComponent< Animator >();
@@ -82,9 +87,9 @@ public class PlayerController : Stopmoving {
 
 		Move(move);
 
-		SlideCheck();
+		// SlideCheck();
 
-		anim.SetFloat("vely", rigidbody2D.velocity.y);
+		// anim.SetFloat("vely", rigidbody2D.velocity.y);
 
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, Mathf.Clamp(rigidbody2D.velocity.y, minYVelocity, maxYVelocity));
 	}
@@ -162,16 +167,16 @@ public class PlayerController : Stopmoving {
 		anim.SetBool("grounded", grounded);
 	}
 
-	void SlideCheck()
-	{
-		float arx = Mathf.Abs(rigidbody2D.velocity.x);
-		if (arx > minSlideVelocity && Input.GetKeyDown(KeyCode.DownArrow))
-			sliding = true;
-		if (arx < minSlideVelocity || !grounded)
-			sliding = false;
+	// void SlideCheck()
+	// {
+	// 	float arx = Mathf.Abs(rigidbody2D.velocity.x);
+	// 	if (arx > minSlideVelocity && Input.GetKeyDown(KeyCode.DownArrow))
+	// 		sliding = true;
+	// 	if (arx < minSlideVelocity || !grounded)
+	// 		sliding = false;
 		
-		anim.SetBool("sliding", sliding);
-	}
+	// 	anim.SetBool("sliding", sliding);
+	// }
 
 	void Flip()
 	{
@@ -183,7 +188,11 @@ public class PlayerController : Stopmoving {
 
 	void Die()
 	{
+		boxCollider2d.enabled = false;
+		circleCollider2d.enabled = false;
+		rigidbody2D.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
 		anim.SetTrigger("death");
+		
 	}
 
 	void ouch()
@@ -195,8 +204,8 @@ public class PlayerController : Stopmoving {
 			Die();
 		else
 		{
-			audiosource.PlayOneShot(ouchClip, .6f);
-			anim.SetTrigger("ouch");
+			// audiosource.PlayOneShot(ouchClip, .6f);
+			// anim.SetTrigger("ouch");
 		}
 	}
 
@@ -237,11 +246,11 @@ public class PlayerController : Stopmoving {
 	}
 	
 	void Update () {
-		if (life < 0)
+		if (life < 1)
 			return ;
 		if (base.cannotmove == true)
 			return ;
-		if (grounded && Input.GetKeyDown(KeyCode.Space) && canJump)
+		if (grounded && Input.GetKeyDown(KeyCode.Space) && canJump && !jumping)
 		{
 		//	print("laaaaaa");
 			audiosource.PlayOneShot(jumpClip, .2f);
@@ -259,6 +268,11 @@ public class PlayerController : Stopmoving {
 		{
 			if (rigidbody2D.velocity.y < slimeVelocityIgnore)
 				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+		}
+		if (canOuch && other.collider.tag == "OS")
+		{
+			Die();
+			return ;
 		}
 	}
 

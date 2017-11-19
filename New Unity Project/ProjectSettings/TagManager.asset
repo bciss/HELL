@@ -7,6 +7,7 @@ TagManager:
   - Foe
   - Ground
   - ouch
+  - OS
   layers:
   - Default
   - TransparentFX
@@ -39,11 +40,8 @@ TagManager:
   - 
   - tetriscube
   - 
-  - GUI
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: GUI
-    uniqueID: 454292003
     locked: 0
