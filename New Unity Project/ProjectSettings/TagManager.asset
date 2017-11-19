@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - ouch
   - OS
+  - finish
   layers:
   - Default
   - TransparentFX

@@ -190,9 +190,11 @@ public class PlayerController : Stopmoving {
 	{
 		boxCollider2d.enabled = false;
 		circleCollider2d.enabled = false;
-		rigidbody2D.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+		rigidbody2D.velocity = new Vector2(0, 0);
+		rigidbody2D.AddForce(new Vector2(0, 50), ForceMode2D.Impulse);
+
 		anim.SetTrigger("death");
-		
+		cannotmove = true;
 	}
 
 	void ouch()
@@ -278,15 +280,22 @@ public class PlayerController : Stopmoving {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "OS")
+		if (other.tag == "finish")
 		{
-			life = 0;
-			Die();
-			return ;
+			cannotmove = true;
+			//rigidbody2D.velocity = new Vector2(0, 0);
+			anim.SetTrigger("finish");
 		}
 
-		if (canOuch && other.tag == "ouch")
-			ouch();
+		// if (other.tag == "OS")
+		// {
+		// 	life = 0;
+		// 	Die();
+		// 	return ;
+		// }
+
+		// if (canOuch && other.tag == "ouch")
+		// 	ouch();
 	}
 
 	void OnDrawGizmos()
