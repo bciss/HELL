@@ -12,7 +12,6 @@ public class playerloadingdevilcontroller : MonoBehaviour {
 	public blblbl b;
 	public Text	loadingtext;
 	public Slider loadingslider;
-	public List<LOL> lol;
 	[HideInInspector] public float loading;
 
 

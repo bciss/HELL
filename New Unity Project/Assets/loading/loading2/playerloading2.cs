@@ -20,7 +20,7 @@ public class playerloading2 : MonoBehaviour {
 
 		if (asjumped == true)
 			transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-		loading = (transform.position.x + 4) * 100 / 8;
+		loading = (transform.position.x + 4) * 100 / 6;
 		loadingtext.text = Mathf.Round(loading).ToString() + "%";
 		loadingslider.value = loading / 100;
 	}
