@@ -1,6 +1,7 @@
 ﻿  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : Stopmoving {
@@ -197,6 +198,16 @@ public class PlayerController : Stopmoving {
 		//spriteRenderer.flipX = facingRight;
 	}
 
+	IEnumerator restart()
+	{
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+	
+		while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+	}
+
 	void Die()
 	{
 		boxCollider2d.enabled = false;
@@ -327,6 +338,9 @@ public class PlayerController : Stopmoving {
 	IEnumerator GameOver()
 	{
 		yield return new WaitForSeconds(2);
-		GM.GameOver();
+		if (LevelManagerScript.passe2 == false)
+			GM.GameOver();
+		else
+			StartCoroutine(restart());
 	}
 }

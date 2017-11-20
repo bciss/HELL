@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3881,7 +3881,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 318891434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.099976, y: -1.7999878, z: 0}
+  m_LocalPosition: {x: -35, y: 3.6999512, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 261463689}
@@ -3889,8 +3889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.1, y: -1.8}
-  m_SizeDelta: {x: 1340.5, y: 830.5}
+  m_AnchoredPosition: {x: -35, y: 3.7}
+  m_SizeDelta: {x: 3759.7, y: 2578.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318891436
 MonoBehaviour:
@@ -12702,7 +12702,7 @@ RectTransform:
   m_GameObject: {fileID: 1110749336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.700012, y: 21.5, z: -5}
-  m_LocalScale: {x: 0.15760441, y: 0.15760441, z: 0.15760441}
+  m_LocalScale: {x: 0.1010101, y: 0.1010101, z: 0.1010101}
   m_Children:
   - {fileID: 1975703382}
   m_Father: {fileID: 0}
@@ -17157,7 +17157,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1669539290}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 148.37807, y: -110.53994, z: 0}
+  m_LocalPosition: {x: 148.37807, y: -110.53993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 261463689}
@@ -17165,7 +17165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.57900006, y: 0.2592061}
   m_AnchorMax: {x: 0.74500006, y: 0.3131216}
-  m_AnchoredPosition: {x: 132.17805, y: -89.15632}
+  m_AnchoredPosition: {x: 132.17805, y: -89.15633}
   m_SizeDelta: {x: 135.95395, y: 22.479391}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1669539292
@@ -22048,6 +22048,7 @@ MonoBehaviour:
     i: 2
   - str: NOOOOOOOOO !!!!!
     i: 1
+  list2: []
   GameState: 0
 --- !u!82 &2120831480
 AudioSource:
