@@ -41,7 +41,7 @@ public class Game_Manager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		print("hell?" +LevelManagerScript.hell);
+		// print("hell?" +LevelManagerScript.hell);
 
 		if (!lost && !GameState) {
 			if (Input.GetKeyDown("space")) {
@@ -85,6 +85,8 @@ public class Game_Manager : MonoBehaviour {
 				txt.GetComponent<Text>().text = list2[i].str;
 			}
 		}
+		if (LevelManagerScript.hell == false && Score == 1540)
+			StartCoroutine(NextScene());
 	}
 
 	public void ScoreUp (int points) {

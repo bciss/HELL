@@ -788,6 +788,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1738687455959612, guid: d9f9b98a30cbe4c1ebb0bf1d9f78b50c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d9f9b98a30cbe4c1ebb0bf1d9f78b50c, type: 2}
   m_IsPrefabParent: 0
@@ -1422,15 +1426,15 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1920133967859604, guid: 763383673cc954800a48ceb2d5c44ea9, type: 2}
-      propertyPath: m_Name
-      value: Foe1 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 114317249209722082, guid: 763383673cc954800a48ceb2d5c44ea9,
         type: 2}
       propertyPath: GameManager
       value: 
       objectReference: {fileID: 543914466}
+    - target: {fileID: 1920133967859604, guid: 763383673cc954800a48ceb2d5c44ea9, type: 2}
+      propertyPath: m_Name
+      value: Foe1 (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 763383673cc954800a48ceb2d5c44ea9, type: 2}
   m_IsPrefabParent: 0
@@ -1921,6 +1925,7 @@ MonoBehaviour:
     i: 1
   - str: Now get your first punishement.
     i: 2
+  list2: []
   GameState: 0
 --- !u!1001 &560837627
 Prefab:
@@ -3143,18 +3148,6 @@ Prefab:
     - target: {fileID: 4901830601643664, guid: 763383673cc954800a48ceb2d5c44ea9, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901830601643664, guid: 763383673cc954800a48ceb2d5c44ea9, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901830601643664, guid: 763383673cc954800a48ceb2d5c44ea9, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4901830601643664, guid: 763383673cc954800a48ceb2d5c44ea9, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114317249209722082, guid: 763383673cc954800a48ceb2d5c44ea9,
         type: 2}
@@ -4936,11 +4929,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4202129690302652, guid: 8892b0844ec18445c8668e714b6fa235, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 47.1
+      value: 47.01
       objectReference: {fileID: 0}
     - target: {fileID: 4202129690302652, guid: 8892b0844ec18445c8668e714b6fa235, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -50
+      value: -49.24
       objectReference: {fileID: 0}
     - target: {fileID: 4202129690302652, guid: 8892b0844ec18445c8668e714b6fa235, type: 2}
       propertyPath: m_LocalPosition.z

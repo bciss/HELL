@@ -11,7 +11,7 @@ public class Player_Controller : MonoBehaviour {
 	public	GameObject		GameManager;
 
 
-	private	GameObject	curShoot;
+	private	GameObject	curShoot = null;
 	private	Game_Manager	GM;
 
 
@@ -30,8 +30,19 @@ public class Player_Controller : MonoBehaviour {
 			else if (move > 0 && transform.position.x < 45f)
 				transform.position = new Vector3(transform.position.x + speed * Time.deltaTime * 2f, transform.position.y, 0);
 			if (Input.GetKeyDown("space") && !curShoot)
-				Shoot();
+			{
+				if (LevelManagerScript.hell == true)
+					Shoot();
+				else
+					heavenshoot();
+			}
 		}
+	}
+
+		void	heavenshoot() {
+		Instantiate(Ammo, new Vector3(transform.position.x, transform.position.y + 1f, 0), Quaternion.identity);
+
+		Debug.Log("heavenshoot !!!");
 	}
 
 	void	Shoot() {
@@ -41,7 +52,7 @@ public class Player_Controller : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Foe")
+		if (other.tag == "Foe" && LevelManagerScript.hell == true)
 		{
 			GameOver();
 		}

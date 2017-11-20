@@ -51,8 +51,9 @@ public class foe_controller : MonoBehaviour {
 			GameObject.Destroy(gameObject);
 		}
 	}
-	
+
 	void Shoot() {
 		curShoot = Instantiate(Ammo, transform.position, Quaternion.identity);
 	}
+
 }
