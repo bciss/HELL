@@ -9,6 +9,7 @@ TagManager:
   - ouch
   - OS
   - finish
+  - death
   layers:
   - Default
   - TransparentFX

@@ -287,7 +287,7 @@ public class PlayerController : Stopmoving {
 			// rigidbody2D.velocity = new Vector2(0, 0);
 			anim.SetTrigger("finish");
 		}
-		if (other.tag == "OS")
+		if (other.tag == "death")
 		{
 			Die();
 			return ;
