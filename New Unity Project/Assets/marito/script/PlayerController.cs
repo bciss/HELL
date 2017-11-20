@@ -50,12 +50,15 @@ public class PlayerController : Stopmoving {
 	Animator		anim;
 	AudioSource		audiosource;
 
-
+	GameObject pike;
 	
 	float			tmp;
 
 	// Use this for initialization
 	void Start () {
+		pike = GameObject.Find("maritopike");
+		if (LevelManagerScript.hell == false)
+			pike.SetActive(false);
 		// spriteRenderer = GetComponent< SpriteRenderer >();
 		GM = GameManager.GetComponent<Game_Manager>();
 		rigidbody2D = GetComponent< Rigidbody2D >();
