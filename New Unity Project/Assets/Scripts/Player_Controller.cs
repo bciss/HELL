@@ -49,6 +49,7 @@ public class Player_Controller : MonoBehaviour {
 	void GameOver()
 	{
 		GM.GameOver();
+		GameObject.Destroy(gameObject);
 		// Debug.Log("GAME OVER");
 	}
 }
