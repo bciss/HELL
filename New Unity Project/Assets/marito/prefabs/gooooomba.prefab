@@ -1095,9 +1095,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canmove: 0
-  dir: -1
-  speed: 20
-  collengt: 4
+  dir: 1
+  speed: 10
+  collengt: 3
 --- !u!114 &114233378081603986
 MonoBehaviour:
   m_ObjectHideFlags: 1

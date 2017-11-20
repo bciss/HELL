@@ -53,8 +53,8 @@ public class Game_Manager : MonoBehaviour {
 		}
 		if (lost && gameover.rectTransform.localScale.x < 5)
 		{
-			gameover.rectTransform.localScale += new Vector3(0.01f,0.01f,0);
-			gameover.color += new Color(0,0,0, 0.005f);
+			gameover.rectTransform.localScale += new Vector3(0.01f,0.01f,0) * Time.deltaTime * 60f;
+			gameover.color += new Color(0,0,0, 0.005f) * Time.deltaTime * 60f;
 		} else if (gameover.rectTransform.localScale.x >= 5){
 			StartCoroutine(NextScene());
 		}
@@ -86,7 +86,7 @@ public class Game_Manager : MonoBehaviour {
 		string scene = "";
 		// yield return new WaitForSeconds(1);
 		if (SceneManager.GetActiveScene().name == "space invaders") {
-			scene = "marito";
+			scene = "loading1";
 		}
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 		while (!asyncLoad.isDone)
