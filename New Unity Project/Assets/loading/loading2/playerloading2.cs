@@ -22,6 +22,7 @@ public class playerloading2 : MonoBehaviour {
 	// Update is called once per frame
 
 	void Update () {
+				print("hell?" +LevelManagerScript.hell);
 
 		if (asjumped == 3)
 			transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
@@ -60,7 +61,7 @@ public class playerloading2 : MonoBehaviour {
 	}
 
 	IEnumerator NextScene() {
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("marito");
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Tetris");
 			while (!asyncLoad.isDone)
 			{
 				yield return null;

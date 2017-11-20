@@ -75,6 +75,8 @@ public class controllertetris : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+				print("hell?" +LevelManagerScript.hell);
+
 		if (GM.GameState) {
 			if (tmp36 == 0 && (current == null || current.ismoving == 0))
 			{

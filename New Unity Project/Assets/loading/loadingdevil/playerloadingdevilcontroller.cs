@@ -22,6 +22,8 @@ public class playerloadingdevilcontroller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+				print("hell?" +LevelManagerScript.hell);
+
 		float move =  Input.GetAxisRaw("Horizontal");
 		float move2 =  Input.GetAxisRaw("Vertical");
 
@@ -48,7 +50,7 @@ public class playerloadingdevilcontroller : MonoBehaviour {
 			loading -= 2;
 	}
 	IEnumerator NextScene() {
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Tetris");
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("marito");
 			while (!asyncLoad.isDone)
 			{
 				yield return null;
