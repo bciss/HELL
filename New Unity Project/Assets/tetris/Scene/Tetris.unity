@@ -917,15 +917,15 @@ MonoBehaviour:
   - str: THIRD PUNISHMENT !
     i: 2
   list2:
-  - str: Itis the end it need to com with me now
+  - str: It is the end it need to come with me now
     i: 3
   - str: Yes I know I just needed it to suffer.
     i: 2
   - str: But I don't understand did i hurt you in anyway?  Do I even know you ?
     i: 1
-  - str: Yes You know me...
+  - str: Yes you know me...
     i: 2
-  - str: I am the soul of the past controller...
+  - str: I am the soul of your past controller...
     i: 2
   - str: You are good.. but not to me
     i: 2
@@ -943,7 +943,7 @@ MonoBehaviour:
     i: 2
   - str: I'm sorry i didn't know. What can do ?
     i: 1
-  - str: It is to late master leav long and prosper.
+  - str: It is to late master live long and prosper.
     i: 2
   - str: Go with him... While I stay here, where I belong
     i: 2
