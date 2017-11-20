@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : Stopmoving {
 
+	public	GameObject		GameManager;
+	private	Game_Manager	GM;
 	public float					maxSpeed = 1f;
 	[HideInInspector] public bool	facingRight = false;
 
@@ -47,12 +49,15 @@ public class PlayerController : Stopmoving {
 	// SpriteRenderer	spriteRenderer;
 	Animator		anim;
 	AudioSource		audiosource;
+
+
 	
 	float			tmp;
 
 	// Use this for initialization
 	void Start () {
 		// spriteRenderer = GetComponent< SpriteRenderer >();
+		GM = GameManager.GetComponent<Game_Manager>();
 		rigidbody2D = GetComponent< Rigidbody2D >();
 		circleCollider2d = GetComponent< CircleCollider2D >();
 		boxCollider2d = GetComponent< BoxCollider2D >();
@@ -71,27 +76,29 @@ public class PlayerController : Stopmoving {
 
 	void FixedUpdate()
 	{
-		if (life < 0)
-			return ;
-		
-		float move;
-		
-		move = Input.GetAxisRaw("Horizontal");
+		if (GM.GameState) {
+			if (life < 0)
+				return ;
+			
+			float move;
+			
+			move = Input.GetAxisRaw("Horizontal");
 
-		if (base.cannotmove == true)
-			return ;
+			if (base.cannotmove == true)
+				return ;
 
-		// Tapping(move);
+			// Tapping(move);
 
-		GroundCheck();
+			GroundCheck();
 
-		Move(move);
+			Move(move);
 
-		// SlideCheck();
+			// SlideCheck();
 
-		// anim.SetFloat("vely", rigidbody2D.velocity.y);
+			// anim.SetFloat("vely", rigidbody2D.velocity.y);
 
-		rigidbody2D.velocity = new Vector2(move * maxSpeed, Mathf.Clamp(rigidbody2D.velocity.y, minYVelocity, maxYVelocity));
+			rigidbody2D.velocity = new Vector2(move * maxSpeed, Mathf.Clamp(rigidbody2D.velocity.y, minYVelocity, maxYVelocity));
+		}
 	}
 
 	void Tapping(float move)
@@ -195,6 +202,7 @@ public class PlayerController : Stopmoving {
 
 		anim.SetTrigger("death");
 		cannotmove = true;
+		StartCoroutine(GameOver());
 	}
 
 	void ouch()
@@ -248,19 +256,21 @@ public class PlayerController : Stopmoving {
 	}
 	
 	void Update () {
-		if (life < 1)
-			return ;
-		if (base.cannotmove == true)
-			return ;
-		if (grounded && Input.GetKeyDown(KeyCode.Space) && canJump && !jumping)
-		{
-		//	print("laaaaaa");
-			audiosource.PlayOneShot(jumpClip, .2f);
-			StartCoroutine(JumpProtec());
-			StartCoroutine(JumpWait());
-		//	new WaitForSeconds(jumpwait);
-		//	rigidbody2D.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
-			StartCoroutine(JumpDelay());
+		if (GM.GameState) {
+			if (life < 1)
+				return ;
+			if (base.cannotmove == true)
+				return ;
+			if (grounded && Input.GetKeyDown(KeyCode.Space) && canJump && !jumping)
+			{
+			//	print("laaaaaa");
+				audiosource.PlayOneShot(jumpClip, .2f);
+				StartCoroutine(JumpProtec());
+				StartCoroutine(JumpWait());
+			//	new WaitForSeconds(jumpwait);
+			//	rigidbody2D.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+				StartCoroutine(JumpDelay());
+			}
 		}
 	}
 
@@ -307,5 +317,11 @@ public class PlayerController : Stopmoving {
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireCube(transform.position + groundPosition, groundSize);
+	}
+
+	IEnumerator GameOver()
+	{
+		yield return new WaitForSeconds(2);
+		GM.GameOver();
 	}
 }
