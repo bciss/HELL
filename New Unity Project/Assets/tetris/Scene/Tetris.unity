@@ -596,9 +596,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a01ba2313b69c4974a3fb9aed2eda1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Intro: {fileID: 0}
+  score: {fileID: 0}
   txt: {fileID: 521166539}
   gameover: {fileID: 1214441980}
   lost: 0
+  list: []
   GameState: 0
 --- !u!114 &373123266
 MonoBehaviour:
@@ -658,7 +661,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 521166537}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.34302, y: 177.43088, z: 0}
+  m_LocalPosition: {x: 57.232025, y: 140.36911, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2002050797}
@@ -781,7 +784,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &787845118
 RectTransform:
@@ -791,7 +794,7 @@ RectTransform:
   m_GameObject: {fileID: 787845114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 90}
-  m_LocalScale: {x: 0.03587846, y: 0.03587846, z: 0.03587846}
+  m_LocalScale: {x: 0.045351475, y: 0.045351475, z: 0.045351475}
   m_Children:
   - {fileID: 2002050797}
   m_Father: {fileID: 0}
@@ -1088,7 +1091,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1400115457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.676025, y: -74.25406, z: 0}
+  m_LocalPosition: {x: 28.223999, y: -58.74388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2002050797}

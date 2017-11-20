@@ -9,6 +9,7 @@ public class goombacontroller : MonoBehaviour {
 	public int dir = -1;
 	public float speed = 15;
 	public float collengt = 3f;
+	public float ejectpower = 100f;
 	EdgeCollider2D	EdgeCollider2d;
 	BoxCollider2D		boxCollider2d;
 	Animator		anim;
@@ -45,7 +46,8 @@ public class goombacontroller : MonoBehaviour {
 		{
 			canmove = false;
 			rb2d = other.GetComponent< Rigidbody2D >();
-			rb2d.AddForce(new Vector2(0, 200), ForceMode2D.Impulse);
+			rb2d.velocity = new Vector2(0, 0);
+			rb2d.AddForce(new Vector2(0, ejectpower), ForceMode2D.Impulse);
 			boxCollider2d.enabled = false;
 			EdgeCollider2d.enabled = false;
 			anim.SetTrigger("death");
