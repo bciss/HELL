@@ -15,6 +15,7 @@ public class foe_controller : MonoBehaviour {
 	private	float			vit;
 	private	GameObject		curShoot;
 	private	Game_Manager	GM;
+	// private float			bl = 0;
 
 
 	// Use this for initialization
@@ -39,6 +40,8 @@ public class foe_controller : MonoBehaviour {
 				transform.position = new Vector3(transform.position.x + j * Time.deltaTime * 60f, transform.position.y, 0);
 				vit *= 0.999f;
 			}
+			// transform.eulerAngles = new Vector3(0, 0, bl);
+			// bl += 0.01f;
 			i += j;
 		}
 	}
