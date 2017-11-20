@@ -49,6 +49,8 @@ public class controllertetris : MonoBehaviour {
 
 	IEnumerator spawnnew()
 	{
+		if (current && current.transform.position.y > 6f)
+			GM.GameOver();
 		current = null;
 		checkpoofneeded.Invoke();
 		yield return new WaitForSeconds(0.01f);
@@ -95,7 +97,9 @@ public class controllertetris : MonoBehaviour {
 				StartCoroutine(delay());
 			}
 			if (Input.GetKeyDown("space"))
+			{
 				current.transform.Rotate(Vector3.forward, 90);
+			}
 		}
 	}
 }

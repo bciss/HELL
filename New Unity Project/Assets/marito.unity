@@ -12592,7 +12592,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 454292003
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &1110749340
 RectTransform:
@@ -12603,7 +12603,7 @@ RectTransform:
   m_GameObject: {fileID: 1110749336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.700012, y: 21.5, z: -5}
-  m_LocalScale: {x: 0.07558579, y: 0.07558579, z: 0.07558579}
+  m_LocalScale: {x: 0.1010101, y: 0.1010101, z: 0.1010101}
   m_Children:
   - {fileID: 1975703382}
   m_Father: {fileID: 0}
@@ -21936,9 +21936,17 @@ MonoBehaviour:
   gameover: {fileID: 860223909}
   lost: 0
   list:
-  - str: LOL
+  - str: Do I have to support this for all eternity ?
+    i: 1
+  - str: Pfff eternity what a short period of time.
     i: 2
-  - str: Bonjour
+  - str: Please make it stop.
+    i: 1
+  - str: OH no. It is just the beginning.
+    i: 2
+  - str: SECOND PUNISHMENT !
+    i: 2
+  - str: NOOOOOOOOO !!!!!
     i: 1
   GameState: 0
 --- !u!1 &2129272738
