@@ -12,6 +12,7 @@ public class turret : MonoBehaviour {
 	public float addrandomspawnrange = 0;
 	public float timebeforeactive = 0;
 	public float	Accelebysecond;
+	public float	timestopshooting = Mathf.Infinity;
 	public float vitessemin;
 
 	LayerMask l;
@@ -33,7 +34,7 @@ public class turret : MonoBehaviour {
 		
 		GetComponent<SpriteRenderer>().enabled = true;
 
-		if (timesinceprevious > realspawntime)
+		if (timesinceprevious > realspawntime && Time.timeSinceLevelLoad < timestopshooting)
 		{
 			RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector3.Normalize(player.transform.position - transform.position), range);
 			if (hit.collider != null && hit.collider.tag == "Player") {

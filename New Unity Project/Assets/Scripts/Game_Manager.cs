@@ -87,6 +87,8 @@ public class Game_Manager : MonoBehaviour {
 		// yield return new WaitForSeconds(1);
 		if (SceneManager.GetActiveScene().name == "space invaders") {
 			scene = "loading1";
+		} else if (SceneManager.GetActiveScene().name == "marito") {
+			scene = "loading2";
 		}
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 		while (!asyncLoad.isDone)
