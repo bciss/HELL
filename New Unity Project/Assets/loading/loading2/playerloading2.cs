@@ -22,7 +22,6 @@ public class playerloading2 : MonoBehaviour {
 
 	void Update () {
 
-		Debug.Log(transform.position.x);
 		if (asjumped == 3)
 			transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
 		else if (asjumped == 1)
@@ -43,8 +42,8 @@ public class playerloading2 : MonoBehaviour {
 			if (Input.GetKey("space"))
 				asjumped = 1;
 		}
-		if (loading + speed * Time.deltaTime < (transform.position.x + 7) * 100 / 14)
-			loading += speed * Time.deltaTime;
+		if (loading + speed * 2 * Time.deltaTime < (transform.position.x + 7) * 100 / 14)
+			loading += speed * 2 *  Time.deltaTime;
 		loadingtext.text = Mathf.Round(loading).ToString() + "%";
 		loadingslider.value = loading / 100;
 	}
