@@ -60,7 +60,7 @@ public class playerloading2 : MonoBehaviour {
 	}
 
 	IEnumerator NextScene() {
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("marito");
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Tetris");
 			while (!asyncLoad.isDone)
 			{
 				yield return null;
