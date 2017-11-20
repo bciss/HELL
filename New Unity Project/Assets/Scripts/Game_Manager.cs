@@ -12,10 +12,12 @@ public class Game_Manager : MonoBehaviour {
 	public	Image		gameover;
 	public	bool		lost;
 	public	List<Talk>	list;
+	public	List<Talk>	list2;
 
 	[HideInInspector]
 	public	bool		GameState;
 
+	private	bool		outro;
 	private	int			Score;
 	private	int			i;
 	private	int			j;
@@ -32,6 +34,7 @@ public class Game_Manager : MonoBehaviour {
 		j = 0;
 		lost = false;
 		GameState = false;
+		outro = false;
 		txt.GetComponent<Text>().color = getColor(list[i].i);
 		txt.GetComponent<Text>().text = list[i].str;
 	}
@@ -43,7 +46,6 @@ public class Game_Manager : MonoBehaviour {
 		if (!lost && !GameState) {
 			if (Input.GetKeyDown("space")) {
 				if (i == list.Count -1) {
-					Debug.Log("end");
 					GameState = true;
 					Intro.SetActive(false);
 					return ;
@@ -57,8 +59,31 @@ public class Game_Manager : MonoBehaviour {
 		{
 			gameover.rectTransform.localScale += new Vector3(0.01f,0.01f,0) * Time.deltaTime * 60f;
 			gameover.color += new Color(0,0,0, 0.005f) * Time.deltaTime * 60f;
-		} else if (gameover.rectTransform.localScale.x >= 5){
+		} else if (gameover.rectTransform.localScale.x >= 5 && !outro){
+			if (SceneManager.GetActiveScene().name == "Tetris") 
+			{
+				outro = true;
+				gameover.enabled = false;
+				Intro.SetActive(true);
+				i = 0;
+				txt.GetComponent<Text>().color = getColor(list2[i].i);
+				txt.GetComponent<Text>().text = list2[i].str;
+				return ;
+			}
 			StartCoroutine(NextScene());
+		}
+		if (outro)
+		{
+			if (Input.GetKeyDown("space")) {
+				if (i == list2.Count -1) {
+					GameState = true;
+					Intro.SetActive(false);
+					StartCoroutine(NextScene());
+				}
+				i++;
+				txt.GetComponent<Text>().color = getColor(list2[i].i);
+				txt.GetComponent<Text>().text = list2[i].str;
+			}
 		}
 	}
 
@@ -91,6 +116,8 @@ public class Game_Manager : MonoBehaviour {
 			scene = "loading1";
 		} else if (SceneManager.GetActiveScene().name == "marito") {
 			scene = "loading2";
+		} else if (SceneManager.GetActiveScene().name == "Tetris") {
+			scene = "space invaders";
 		}
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 		while (!asyncLoad.isDone)
