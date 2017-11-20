@@ -49,7 +49,7 @@ public class controllertetris : MonoBehaviour {
 
 	IEnumerator spawnnew()
 	{
-		if (current && current.transform.position.y > 6f)
+		if (current && current.transform.position.y > origin.y - 2)
 			GM.GameOver();
 		current = null;
 		checkpoofneeded.Invoke();
@@ -75,6 +75,8 @@ public class controllertetris : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+				print("hell?" +LevelManagerScript.hell);
+
 		if (GM.GameState) {
 			if (tmp36 == 0 && (current == null || current.ismoving == 0))
 			{

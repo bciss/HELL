@@ -76,6 +76,7 @@ public class PlayerController : Stopmoving {
 
 	void FixedUpdate()
 	{
+		print("hell?" +LevelManagerScript.hell);
 		if (GM.GameState) {
 			if (life < 0)
 				return ;
@@ -202,6 +203,7 @@ public class PlayerController : Stopmoving {
 
 		anim.SetTrigger("death");
 		cannotmove = true;
+		LevelManagerScript.hell = false;
 		StartCoroutine(GameOver());
 	}
 

@@ -41,6 +41,8 @@ public class Game_Manager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		print("hell?" +LevelManagerScript.hell);
+
 		if (!lost && !GameState) {
 			if (Input.GetKeyDown("space")) {
 				if (i == list.Count -1) {
