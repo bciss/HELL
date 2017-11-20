@@ -45,6 +45,12 @@ public class Game_Manager : MonoBehaviour {
 		// print("hell?" +LevelManagerScript.hell);
 
 		if (!lost && !GameState) {
+			if (LevelManagerScript.passe2)
+			{
+				GameState = true;
+				Intro.SetActive(false);
+				return ;
+			}
 			if (Input.GetKeyDown("space")) {
 				if (i == list.Count -1) {
 					GameState = true;
@@ -123,7 +129,10 @@ public class Game_Manager : MonoBehaviour {
 			scene = "space invaders";
 		} else if (SceneManager.GetActiveScene().name == "space invaders") {
 			scene = "marito";
+		} else if (SceneManager.GetActiveScene().name == "marito") {
+			scene = "youwin";
 		}
+		
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
 		while (!asyncLoad.isDone)
         {
