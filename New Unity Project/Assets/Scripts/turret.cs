@@ -25,7 +25,7 @@ public class turret : MonoBehaviour {
 	{
 		if (spawntime - Time.deltaTime * Accelebysecond > vitessemin)
 			spawntime -= Time.deltaTime * Accelebysecond;
-		if (timebeforeactive > Time.time)
+		if (timebeforeactive > Time.timeSinceLevelLoad)
 			return ;
 			// Debug.Log(Time.time);
 

@@ -181,7 +181,7 @@ public class PlayerController : Stopmoving {
 	void Flip()
 	{
 		facingRight = !facingRight;
-		anim.SetBool("facingright", facingRight);
+		// anim.SetBool("facingright", facingRight);
 		transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
 		//spriteRenderer.flipX = facingRight;
 	}
@@ -190,9 +190,11 @@ public class PlayerController : Stopmoving {
 	{
 		boxCollider2d.enabled = false;
 		circleCollider2d.enabled = false;
-		rigidbody2D.AddForce(new Vector2(0, jumpPower), ForceMode2D.Impulse);
+		rigidbody2D.velocity = new Vector2(0, 0);
+		rigidbody2D.AddForce(new Vector2(0, 50), ForceMode2D.Impulse);
+
 		anim.SetTrigger("death");
-		
+		cannotmove = true;
 	}
 
 	void ouch()
@@ -264,12 +266,13 @@ public class PlayerController : Stopmoving {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.collider.tag == "Slime")
-		{
-			if (rigidbody2D.velocity.y < slimeVelocityIgnore)
-				rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
-		}
-		if (canOuch && other.collider.tag == "OS")
+		// if (other.collider.tag == "Slime")
+		// {
+		// 	if (rigidbody2D.velocity.y < slimeVelocityIgnore)
+		// 		rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+		// }
+		// print("colide");
+		if (other.collider.tag == "OS")
 		{
 			Die();
 			return ;
@@ -278,15 +281,26 @@ public class PlayerController : Stopmoving {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
+		if (other.tag == "finish")
+		{
+			cannotmove = true;
+			// rigidbody2D.velocity = new Vector2(0, 0);
+			anim.SetTrigger("finish");
+		}
 		if (other.tag == "OS")
 		{
-			life = 0;
 			Die();
 			return ;
 		}
+		// if (other.tag == "OS")
+		// {
+		// 	life = 0;
+		// 	Die();
+		// 	return ;
+		// }
 
-		if (canOuch && other.tag == "ouch")
-			ouch();
+		// if (canOuch && other.tag == "ouch")
+		// 	ouch();
 	}
 
 	void OnDrawGizmos()

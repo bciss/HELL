@@ -21,4 +21,10 @@ public class fourche : MonoBehaviour {
 		if (transform.position.x > 20 || transform.position.x < -20 || transform.position.y > 20 || transform.position.y < -20)
 			GameObject.Destroy(gameObject);
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Player")
+			GameObject.Destroy(gameObject);
+	}
 }
