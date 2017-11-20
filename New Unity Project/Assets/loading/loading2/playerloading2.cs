@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class playerloading2 : MonoBehaviour {
@@ -46,6 +47,9 @@ public class playerloading2 : MonoBehaviour {
 			loading += speed * 2 *  Time.deltaTime;
 		loadingtext.text = Mathf.Round(loading).ToString() + "%";
 		loadingslider.value = loading / 100;
+		if (loading >= 100) {
+			StartCoroutine(NextScene());
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -53,6 +57,14 @@ public class playerloading2 : MonoBehaviour {
 		Debug.Log("fdsf");
 		if (other.tag == "ouch")
 			loading -= 2;
+	}
+
+	IEnumerator NextScene() {
+		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("marito");
+			while (!asyncLoad.isDone)
+			{
+				yield return null;
+        	}
 	}
 
 	// void OnDrawGizmos()
