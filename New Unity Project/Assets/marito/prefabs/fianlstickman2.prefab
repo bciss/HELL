@@ -698,6 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannotmove: 0
+  GameManager: {fileID: 0}
   maxSpeed: 20
   facingRight: 0
   jumpPower: 500
