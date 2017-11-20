@@ -116,7 +116,7 @@ public class Game_Manager : MonoBehaviour {
 		return new Color(0,0,1);
 	}
 
-	IEnumerator NextScene() {
+	public IEnumerator NextScene() {
 		// SceneManager.GetActiveScene().name;
 		string scene = "";
 		// yield return new WaitForSeconds(1);

@@ -305,12 +305,20 @@ public class PlayerController : Stopmoving {
 		}
 	}
 
+	IEnumerator win()
+	{
+		yield return new WaitForSeconds(2f);
+		StartCoroutine(GM.NextScene());
+	}
+
+
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "finish")
 		{
 			cannotmove = true;
 			// rigidbody2D.velocity = new Vector2(0, 0);
+			StartCoroutine(win());
 			anim.SetTrigger("finish");
 		}
 		if (other.tag == "death")
