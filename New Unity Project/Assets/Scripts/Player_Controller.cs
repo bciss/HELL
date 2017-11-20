@@ -24,9 +24,10 @@ public class Player_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (GM.GameState) {
-			if (Input.GetKey("left") && transform.position.x > -45f)
+			float move = Input.GetAxisRaw("Horizontal"); 
+			if (move < 0 && transform.position.x > -45f)
 				transform.position = new Vector3(transform.position.x - speed * Time.deltaTime * 2f, transform.position.y, 0);
-			else if (Input.GetKey("right") && transform.position.x < 45f)
+			else if (move > 0 && transform.position.x < 45f)
 				transform.position = new Vector3(transform.position.x + speed * Time.deltaTime * 2f, transform.position.y, 0);
 			if (Input.GetKeyDown("space") && !curShoot)
 				Shoot();
