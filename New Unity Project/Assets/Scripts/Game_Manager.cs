@@ -45,7 +45,7 @@ public class Game_Manager : MonoBehaviour {
 		// print("hell?" +LevelManagerScript.hell);
 
 		if (!lost && !GameState) {
-			if (LevelManagerScript.passe2)
+		if (LevelManagerScript.passe2 && SceneManager.GetActiveScene().name != "Tetris")
 			{
 				GameState = true;
 				Intro.SetActive(false);
