@@ -10,6 +10,7 @@ TagManager:
   - OS
   - finish
   - death
+  - mariopike
   layers:
   - Default
   - TransparentFX
