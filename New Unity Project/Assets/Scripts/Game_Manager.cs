@@ -10,6 +10,7 @@ public class Game_Manager : MonoBehaviour {
 	public	Text		score;
 	public	Text		txt;
 	public	Image		gameover;
+	public	Image		win;
 	public	bool		lost;
 	public	List<Talk>	list;
 	public	List<Talk>	list2;
@@ -119,8 +120,8 @@ public class Game_Manager : MonoBehaviour {
 			scene = "loading2";
 		} else if (SceneManager.GetActiveScene().name == "Tetris") {
 			LevelManagerScript.passe2 = true;
-			scene = "space invader";
-		} else if (SceneManager.GetActiveScene().name == "space invader") {
+			scene = "space invaders";
+		} else if (SceneManager.GetActiveScene().name == "space invaders") {
 			scene = "marito";
 		}
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
