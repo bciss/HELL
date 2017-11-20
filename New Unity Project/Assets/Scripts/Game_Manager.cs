@@ -115,12 +115,12 @@ public class Game_Manager : MonoBehaviour {
 		// yield return new WaitForSeconds(1);
 		if (SceneManager.GetActiveScene().name == "space invaders" && LevelManagerScript.passe2 == false) {
 			scene = "loading1";
-		} else if (SceneManager.GetActiveScene().name == "marito") {
+		} else if (SceneManager.GetActiveScene().name == "marito" && LevelManagerScript.passe2 == false) {
 			scene = "loading2";
 		} else if (SceneManager.GetActiveScene().name == "Tetris") {
 			LevelManagerScript.passe2 = true;
-			scene = "Space invader";
-		} else if (SceneManager.GetActiveScene().name == "Space invader") {
+			scene = "space invader";
+		} else if (SceneManager.GetActiveScene().name == "space invader") {
 			scene = "marito";
 		}
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
