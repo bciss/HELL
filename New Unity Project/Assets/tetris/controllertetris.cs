@@ -49,7 +49,7 @@ public class controllertetris : MonoBehaviour {
 
 	IEnumerator spawnnew()
 	{
-		if (current && current.transform.position.y > 6f)
+		if (current && current.transform.position.y > origin.y - 2)
 			GM.GameOver();
 		current = null;
 		checkpoofneeded.Invoke();
